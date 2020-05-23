@@ -205,8 +205,9 @@
                                                </li>
                                                {% else %}
                                                <li class="nav-item">
-                                              <h4>   <i class="material-icons">close</i> <strong>Items</strong>   <button class="btn btn btn-white "> <a  href=""> No Items found</a></button>   </h4>           
-                                               </li>
+                                              <h4>   <strong>Bummer!Your cart is Empty</strong>  <button class="btn btn-white btn-lg "> <a  href="{% url 'shop:product_list' %}" > Shop now </a></button>    </h4>            
+
+                                            </li>
                                                {% endif %}
                                                {% endwith %}
                                             
@@ -246,7 +247,7 @@
                             </div>
                             <div class="row  text-center">
                             <div class="col-md-12 ml-auto ">
-                            <button class="btn btn-lg btn-white  "> <a  href="{{ product.category.get_absolute_url }}">{{ product.category }} <i class="material-icons">
+                            <button class="btn btn-lg btn-white  "> <a  href="/cart"> <i class="material-icons">
                                     edit
                                     </i> MODIFY CART </a></button>
                         </div>
