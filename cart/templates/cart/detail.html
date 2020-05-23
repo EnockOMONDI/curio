@@ -25,12 +25,12 @@
                         {{ totail_items }} item {{ totail_items|pluralize }}, Kshs. {{ cart.get_total_price }}
                     </a> -->
               
-          <h4 class="card-title"><strong class="text-muted">My Shopping Cart : {{ totail_items }} item {{ totail_items|pluralize }}, KSH {{ cart.get_total_price }}</strong> </h4>
+          <h4 class="card-title"><strong class="text-muted">Hey {{ request.user.username }}, your shopping Cart has:</strong> {{ totail_items }} item {{ totail_items|pluralize }}, KSH {{ cart.get_total_price }} </h4>
           <button type="button" class="btn btn-link ">
                 <a href="{% url 'shop:product_list' %}"> Continue  Shopping <i class="material-icons">keyboard_arrow_right</i>  </a> 
             </button>
           {% else %}
-          <h4 class="card-title" >Your cart is empty</h4>
+          <h4 class="card-title" > <strong class="text-muted" >Hey :-( , {{ request.user.username }} your cart is empty </strong></h4>
           <button type="button" class="btn btn-link ">
             <a href="{% url 'shop:product_list' %}">Shop Now <i class="material-icons">keyboard_arrow_right</i>  </a> 
         </button>
