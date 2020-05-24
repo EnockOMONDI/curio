@@ -20,9 +20,10 @@ urlpatterns = [
     url(r'^shop/', views.product_list, name='product_list'),
     url(r'^(?P<category_slug>[-\w]+)/$', views.product_list, name='product_list_by_category'),
     url(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', views.product_detail, name='product_detail'),
-    url(r'^(?P<category_slug>[-\w]+)/$', views.subcategory_list, name='product_list_by_subcategory'),
-    url(r'^(?P<subcategory_slug>[-\w]+)/$', views.minicategory_list, name='product_list_by_minicategory')
-    
+
+    url(r'^(?P<subcategory_slug>[-\w]+)/$', views.subcategory_list, name='product_list_by_subcategory'),
+    url(r'^(?P<minicategory_slug>[-\w]+)/$', views.minicategory_list, name='product_list_by_minicategory')
+
    
     
 

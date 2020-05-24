@@ -44,7 +44,7 @@ class SubCategory(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('shop:minicategory_list', args=[self.slug])
+        return reverse('shop:product_list_by_subcategory', args=[self.slug])
 
 
 class MiniCategory(models.Model):
@@ -65,7 +65,7 @@ class MiniCategory(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('shop:product_list', args=[self.slug])
+        return reverse('shop:product_list_by_category', args=[self.slug])
 
 
 class Product(models.Model):

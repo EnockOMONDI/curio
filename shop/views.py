@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import NewsLetterForm
 
 # @login_required(login_url='/accounts/login/')
-def product_list(request,category_slug=None,):
+def product_list(request,category_slug=None):
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
@@ -13,17 +13,12 @@ def product_list(request,category_slug=None,):
         category = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(category=category)
 
-    context = {
-        'category': category,
-        'categories': categories,
-        'products': products,
-  
-    }
+   
 
     return render(request, 'shop/product/list.html',   context = {
         'category': category,
         'categories': categories,
-        'products': products,  
+        'products': products, 
         'tab': 'shop',
         'local_css_urls': ["css3/easy-responsive-tabs.css",
                             "css3/material-kit.min1036.css",
@@ -52,38 +47,39 @@ def product_list(request,category_slug=None,):
 
 
 
-def subcategory_list(request, category_slug=None,subcategory_slug=None,minicategory_slug=None):
-    category = None
+def subcategory_list(request, subcategory_slug=None):
     subcategory = None
-    minicategory = None
-    categories = Category.objects.all()
-    subcategories = SubCategory.objects.filter(available=True)
+    subcategories = Category.SubCategory.objects.all()
+    products = Product.subcategory.objects.filter(available=True)
     if category_slug:
-        category = get_object_or_404(Category, slug=category_slug)
-        subcategories = SubCategory.objects.filter(category=category,available=True)
+        subcategory = get_object_or_404(SubCategory, slug=SubCategory_slug)
+        products = Product.objects.filter(subcategory=subcategory)
 
     context = {
-        'category': category,
-        'categories': categories,
+           
+        'subcategory':subcategory,
         'subcategories': subcategories,
-        'subcategory': SubCategory,
+        'products': products,
+  
     }
     return render(request, 'shop/product/sublist.html', context)
 
-def minicategory_list(request, subcategory_slug=None):
-    subcategory = None
-    subcategories = SubCategory.objects.all()
-    minicategories = MiniCategory.objects.filter(available=True)
-    if subcategory_slug:
-        subcategory = get_object_or_404(SubCategory, slug=subcategory_slug)
-        minicategories = MiniCategory.objects.filter(subcategory=subcategory,available=True)
+def minicategory_list(request, minicategory_slug=None):
+    minicategory = None
+    minicategories = Category.SubCategory.MiniCategory.objects.all()
+    products = Product.objects.filter(available=True)
+    if category_slug:
+        minicategory = get_object_or_404( MiniCategory, slug= MiniCategory_slug)
+        products = Product.objects.filter(minicategory=minicategory)
 
     context = {
-        'subcategories': subcategories,
-        'Subcategory': SubCategory,
+           
+        'minicategory':minicategory,
         'minicategories': minicategories,
-        'minicategory': MiniCategory,
+        'products': products,
+  
     }
+
     return render(request, 'shop/product/minilist.html', context)
 
 # @login_required(login_url='/accounts/login/')
