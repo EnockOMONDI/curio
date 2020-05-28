@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Category, Product, SubCategory, MiniCategory
 from cart.forms import CartAddProductForm
 from django.contrib.auth.decorators import login_required
-from .forms import NewsLetterForm
+
 
 # @login_required(login_url='/accounts/login/')
 def product_list(request,category_slug=None):

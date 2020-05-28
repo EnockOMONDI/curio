@@ -11,8 +11,14 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import dj_database_url
 from decouple import config
+import sys
 db_from_env = dj_database_url.config(conn_max_age=500)
 
+# Import all constants to use throughout our application
+try:
+    from ecommerce.constants import *
+except ImportError:
+    pass
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -47,12 +53,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites', # new
-    'allauth', # new
-    'allauth.account', # new
-    'allauth.socialaccount', # new
-    'allauth.socialaccount.providers.google', # new
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.twitter',
+    'registration',
+    'login',
+    'account',
+    'captcha'
+  
 ]
 
 MIDDLEWARE = [
@@ -94,7 +99,7 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ecommerceshop2',
+        'NAME': 'curioeffect2020',
         'USER': 'sean',
     'PASSWORD':'Aggreyomondi90',
     }
@@ -118,12 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = (
-    # Default backend -- used to login by username in Django admin
-    "django.contrib.auth.backends.ModelBackend",
-    # `allauth` specific authentication methods, such as login by e-mail
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -162,5 +161,8 @@ CART_SESSION_ID = 'cart'
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-LOGIN_REDIRECT_URL = '/shop/'
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR,  'templates'),
+    # Add to this list all the locations containing your static files 
+)
 

@@ -19,6 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url ,include
 from django.contrib.auth import views
+from django.urls import path, re_path
 
 
 
@@ -26,13 +27,15 @@ from django.contrib.auth import views
 
 
 urlpatterns = [
-    url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
-    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
-    url('admin/', admin.site.urls),
-    url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^accounts/', include('allauth.urls')),
-    url(r'^logout/$', views.logout, {"next_page": '/'}),
-    url('cart', include('cart.urls')),
-    url('orders/', include('orders.urls')),
-    url('', include('shop.urls')),
+   
+
+    re_path(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    re_path(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+    re_path('admin/', admin.site.urls),
+    re_path(r'', include('registration.urls')),
+    re_path(r'', include('login.urls')),
+    re_path(r'', include('account.urls')),
+    re_path(r'cart', include('cart.urls')),
+    re_path(r'orders/', include('orders.urls')),
+    re_path(r'', include('shop.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
