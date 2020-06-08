@@ -20572,6 +20572,8 @@ select.selectpicker {
    }
 }
 
+
+
 @media screen and (max-width:767px) {
    .presentation-page .section-components .components-macbook {
        max-width: 350px!important;

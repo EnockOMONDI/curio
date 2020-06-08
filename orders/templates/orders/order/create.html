@@ -270,8 +270,8 @@
                                                 <h3  class="card-title text-center">        <strong>Enter your Delivery Address Details</strong></h3>
                                                 <!-- <h4  class="card-title text-center">
                                                        </h3> -->
-                                                <form class="form-card p-4 pl-5">
-                                                        <div class="row">
+                                                <div class="form-card p-4 pl-5">
+                                                        <!-- <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="row">
                                                                     <div class="col-12"> <label class="gift">First name</label> </div>
@@ -284,14 +284,14 @@
                                                                     <div class="col-12"> <input class="gift-input" type="text" name="from" placeholder=""> </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
+                                                        </div> -->
+                                                        <!-- <div class="row">
                                                             <div class="col-12"> <label class="gift">Your email</label><br> <input class="gift-input" type="email" name="email" placeholder="example@mail.com"> </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-12"> <label class="gift">Mobile number</label><br> <input class="gift-input" type="text" name="msg" placeholder=""> </div>
-                                                        </div>
-                                                        <div class="row">
+                                                        </div> -->
+                                                        <!-- <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="row">
                                                                         <div class="col-12"> <label class="gift">County</label> </div>
@@ -304,11 +304,11 @@
                                                                         <div class="col-12"> <input class="gift-input" type="text" name="from" placeholder=""> </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="row">
+                                                            </div> -->
+                                                            <!-- <div class="row">
                                                                     <div class="col-12"> <label class="gift">Delivery Address/House No /App No</label><br> <input class="gift-input" type="text" name="msg" placeholder="Try to be as accurate as possible"> </div>
-                                                                </div>
-                                                                <div class="col-12 text-center">
+                                                                </div> -->
+                                                                <!-- <div class="col-12 text-center">
                                                                         <select class="selectpicker" data-style="select-with-transition" multiple title="Choose Method" data-size="7">
                                                                           <option disabled> Choose Method</option>
                                                                           <option value="2"> Curio XP (Same day delivery) </option>
@@ -316,19 +316,26 @@
                                                                         
                                                                         </select>
                                         
-                                                                      </div> 
-                                                                      <div class="social-btn" >
+                                                                      </div>  -->
+                                                                      <!-- <div class="social-btn" >
                                                                             <input type="submit" class="btn btn-primary btn-lg" value="Proceed to payment">
-                                                                       </div>
-                                                                       <!-- <form style="margin:10%;margin-top:0;font-size:15px;"action="." method="post">
+                                                                       </div> -->
+                                                                       <form style="margin:10%;margin-top:0;font-size:15px;"action="." method="post">
                                                                             {% csrf_token %}
                                                                             {{ form.as_p }}<br>
                                                                             <div class="social-btn" >
-                                                                            <input type="submit" class="btn btn-primary btn-lg" value="Proceed to payment">
-                                                                       </div>
-                                                                        </form> -->
-                                                   
-                                                                    </form>
+                                                                                    {% if cart|length > 0 %}
+                                                                            <input type="submit" class="btn btn-primary btn-lg" value="Proceed to payment">             
+                                                                        </div>
+                                                                        </form>
+                                                                        {% else %}
+                                                                          
+                                                                        <h4>  <button class="btn btn-white btn-lg "> <a  href="{% url 'shop:product_list' %}" > Shop now </a></button>    </h4>            
+                          
+                                                                
+                                                                         {% endif %}
+                                                                         
+                                                                    </div>
                                         </div>
                                     </div>
                         </div>

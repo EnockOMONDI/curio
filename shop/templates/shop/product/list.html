@@ -11,14 +11,14 @@
 
 <div class="container">
 
-            
+    <div class="col-md-4 ml-auto mr-auto text-center">
+                
+        <button type="button" class="btn btn-white">  Categories</button>
+    
+      </div>
         <div class="row mr-auto pt-8 pt-lg-0">
            
-                <div class="col-md-4 ml-auto mr-auto text-center">
-                
-                        <button type="button" class="btn btn-white ">  Categories</button>
-                    
-                      </div>
+           
                 <div class="">
                         {% for c in categories %}
 
@@ -84,7 +84,7 @@
                     <div class="card  ">
                         <div class="card-header card-header-image">
                           <a href="{{ product.get_absolute_url }}">
-                            <img class="img" src="{% if product.image %} {{ product.image.cdn_url }} {% else %} {% static 'img/default.png' %} {% endif %}" >
+                            <img class="img" href="{{ product.get_absolute_url }}" src="{% if product.image %} {{ product.image.cdn_url }} {% else %} {% static 'img/default.png' %} {% endif %}" >
                           </a>
                         </div>
                         <div class="card-body text-center  " style="color:rgb(235, 235, 235)">

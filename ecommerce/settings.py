@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites', # new
-    'mptt',
+    # 'mptt',
     'registration',
     'login',
     'account',
@@ -85,7 +85,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'cart.context_processors.cart',
-                # 'django.template.context_processors.i18n',
+                'django.template.context_processors.i18n',
             ],
         },
     },
