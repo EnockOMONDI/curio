@@ -3403,7 +3403,7 @@ tbody.collapse.show {
 .input-group-text {
    display: flex;
    align-items: center;
-   padding: .4375rem 0;
+   padding: 0;
    margin-bottom: 0;
    font-size: 1rem;
    font-weight: 400;
@@ -4175,7 +4175,13 @@ tbody.collapse.show {
    background-color: #fff;
    background-clip: border-box;
    border: 1px solid rgba(0, 0, 0, .12);
-   border-radius: .25rem
+   /* border-radius: .25rem */
+   border-radius: 10px;
+   box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+   -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+   -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+   -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+   -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
 .card>hr {
@@ -5183,7 +5189,7 @@ button.close {
    align-items: center;
    justify-content: flex-end;
    padding: 1rem;
-   border-top: 1px solid #e9ecef
+ 
 }
 
 .modal-footer>:not(:first-child) {
@@ -17031,7 +17037,7 @@ thead.thead-inverse th {
 .card .card-header-primary,
 .card.card-rotate.bg-primary .back,
 .card.card-rotate.bg-primary .front {
-   background: linear-gradient(60deg,#f8b248 ,#ff9800 )
+   background: linear-gradient(60deg,#ffffff ,#ffffff )
 }
 
 .card.bg-info,

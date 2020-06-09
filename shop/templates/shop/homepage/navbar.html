@@ -60,22 +60,32 @@
           </li>
 
           <li>
+
          
               <div class="dropdown ">
+                  {% if request.user.is_authenticated %}
+                <button class="dropdown-toggle btn btn-primary btn-round btn-block "  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Welcome  {{ request.user.username }}
+                </button>
+                <div class="dropdown-menu dropdown-with-icons" aria-labelledby="multiDropdownMenu">
+         
+                    <a class="dropdown-item"  href="/logout"> <i class="material-icons">account_circle</i> Logout</a>
+                    <a class="dropdown-item"  data-toggle="modal" data-target="#ordertrackmodal"> <i class="material-icons">motorcycle</i> Track Order</a>
+
+               
+                </div>
+                {% else %}
                 <button class="dropdown-toggle btn btn-primary btn-round btn-block "  type="button" id="multiDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   My Account
                 </button>
                 <div class="dropdown-menu dropdown-with-icons" aria-labelledby="multiDropdownMenu">
-                   
-                    
                     <a class="dropdown-item"  href="/redirected_login"> <i class="material-icons">account_circle</i> Login</a>
                   <a class="dropdown-item"  href="/redirected-register"> <i class="material-icons">account_circle</i> Sign up</a>
-                  <a class="dropdown-item"  data-toggle="modal" data-target="#ordertrackmodal"> <i class="material-icons">motorcycle</i> Track Order</a>
-               
+                 
                 </div>
-          
+                {% endif %}
               </div>
-  
+           
         </li>
           <li class="dropdown nav-item">
               <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
